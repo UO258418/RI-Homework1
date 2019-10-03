@@ -1,7 +1,6 @@
 package main;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,8 +13,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			//Connection con = DbUtil.getConnection();
-			Connection con = DriverManager.getConnection("156.35.94.99", "uo258418", "passuo258418");
+			Connection con = DbUtil.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(GET_TABLE);
 			display(rs);
@@ -26,7 +24,7 @@ public class Main {
 	}
 	
 	public static void display(ResultSet rs) throws SQLException {
-		while(rs.next()) System.out.printf("Id: %d / Price: %d / Stock: %f\n", 
+		while(rs.next()) System.out.printf(" - Id: %d Price: %d Stock: %f\n", 
 				rs.getInt("id"), rs.getInt("price"), rs.getFloat("stock"));
 	}
 
