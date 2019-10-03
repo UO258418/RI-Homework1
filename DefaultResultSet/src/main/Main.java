@@ -10,6 +10,7 @@ import util.DbUtil;
 public class Main {
 	
 	private final static String GET_TABLE = DbUtil.getQuery("SQL_GET_TABLE");
+	private final static int SECONDS_TO_SLEEP = 20;
 
 	public static void main(String[] args) {
 		try {
@@ -17,8 +18,10 @@ public class Main {
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(GET_TABLE);
 			display(rs);
+			Thread.sleep(SECONDS_TO_SLEEP * 1000);
+			display(rs);
 			con.close();
-		} catch (SQLException e) {
+		} catch (SQLException | InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
