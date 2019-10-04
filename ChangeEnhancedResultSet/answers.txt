@@ -1,0 +1,12 @@
+1. No, I couldn't because the iterator pointing to next in the result set is already at the end after the first 
+time I call display, so there's nothing more to be shown when we call display again
+
+
+2. Yes, I could this time thanks to the scrolling:
+
+public static void display(ResultSet rs) throws SQLException {
+		rs.beforeFirst();
+		System.out.println();
+		while(rs.next()) System.out.printf(" - Id: %d Price: %d Stock: %f\n", 
+				rs.getInt("id"), rs.getInt("price"), rs.getFloat("stock"));
+}
