@@ -1,0 +1,2 @@
+1. No, I couldn't because the iterator pointing to next in the result set is already at the end after the first 
+time I call display, so there's nothing more to be shown when we call display again

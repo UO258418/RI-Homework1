@@ -10,3 +10,10 @@ public static void display(ResultSet rs) throws SQLException {
 		while(rs.next()) System.out.printf(" - Id: %d Price: %d Stock: %f\n", 
 				rs.getInt("id"), rs.getInt("price"), rs.getFloat("stock"));
 }
+
+
+3. No, I couldn't due to the fact that executing Update over the same statement closes the result set and so 
+when you try to display again theres an error
+
+
+4. In the database I can see the updates made by the program.
